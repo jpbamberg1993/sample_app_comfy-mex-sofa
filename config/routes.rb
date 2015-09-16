@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get 'users/new'
 
   root             'static_pages#home'
@@ -7,6 +8,10 @@ Rails.application.routes.draw do
   get 'contact' => 'static_pages#contact'
   get 'signup'  => 'users#new'
                               
+  comfy_route :cms_admin, :path => '/admin'
+  # Make sure this routeset is defined last
+  comfy_route :cms, :path => '/', :sitemap => false
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
